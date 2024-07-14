@@ -20,7 +20,7 @@ exports.viewCart = asyncHandler(async (req, res) => {
     .populate("products.variantId");
 
 
-  const latestProducts = await productCLTN.find({}).sort({createdDate:-1}).limit(8).populate('offer')
+  const latestProducts = await productCLTN.find({is_deleted:false}).sort({createdDate:-1}).limit(8).populate('offer')
 
 
   for(let product of latestProducts) {

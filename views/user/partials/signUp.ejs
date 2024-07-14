@@ -361,9 +361,9 @@
                 <div class="container">
                     <form id="registrationForm" action="#" method="POST"> <!--id="registrationForm"-->
                         <div class="login__section--inner">
-                            <div class="row row-cols-md-1 row-cols-1">
+                            <div class="row row-cols-md-2 row-cols-1" style="display: flex; justify-content: center;">
 
-                                <div class="col" style="display: flex; justify-content: center;">
+                                <div class="col">
                                     <div class="account__login register">
                                         <div class="account__login--header mb-25">
                                             <h2 class="account__login--header__title h3 mb-10"
@@ -400,14 +400,7 @@
                                             
                                             <input id="confirmPassword" class="account__login--input" name="confirmPassword" placeholder="Confirm Password" type="password">
                                             <div id="confirmPassword-error" class="error-message" style="color: red;"></div>
-                                            <div class="account__login--remember position__relative">
-                                                <input class="checkout__checkbox--input" id="check2" type="checkbox">
-                                                <span class="checkout__checkbox--checkmark"></span>
-                                                <label class="checkout__checkbox--label login__remember--label"
-                                                    for="check2">
-                                                    <p>I read and agree to Terms & Conditions</p>
-                                                </label>
-                                            </div>
+                                           
                                             <button class="account__login--btn primary__btn mb-10" type="submit">Submit
                                                 & Register</button>
                                             <div class="account__login--divide">
@@ -415,12 +408,12 @@
                                                     style="color: black;">OR</span>
                                             </div>
                                             <div class="account__social d-flex justify-content-center mb-15">
-                                                <a class="account__social--link facebook" target="_blank"
-                                                    href="https://www.facebook.com/">Facebook</a>
+                                                  <!-- <a id="facebook-login-btn" class="account__social--link facebook" 
+                                                   >Facebook</a> -->
                                                 <a id="google-login-btn" class="account__social--link google" 
                                                 >Google</a>
-                                                <a class="account__social--link twitter" target="_blank"
-                                                    href="https://twitter.com/">Twitter</a>
+                                               <!-- <a class="account__social--link twitter" target="_blank"
+                                                    href="https://twitter.com/">Twitter</a> -->
                                             </div>
 
 
@@ -449,9 +442,8 @@
                     
 
                    
-                    // const nameRegex = /^[^\s][a-zA-Z]*[^\s]$/;
+                    
                     const nameRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9._]*[a-zA-Z0-9])?$/;
-                    // const nameRegex = /^[\w.-]+(?<!\s)[\w.-]{6,63}([\w.-])?(?!\s)$/
                     let emailRegex = /^[^\s][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                     const mobileRegex = /^(\+?\d{1,3}[- ]?)?(7|8|9)\d{9}$/;
                     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
@@ -463,6 +455,7 @@
                     if (!nameRegex.test(name)) {
                         showError('name-error', "User Names can only contain letters and special characters,");
                         isValid = false;
+                        return
                     } else {
                         hideError('name-error');
                     }
@@ -470,6 +463,7 @@
                     if (!emailRegex.test(email)) {
                         showError('email-error', 'Please enter a valid email address.');
                         isValid = false;
+                        return
                     } else {
                         hideError('email-error');
                     }
@@ -477,6 +471,7 @@
                     if (!mobileRegex.test(mobile)) {
                         showError('mobile-error', 'Please enter a valid mobile number.');
                         isValid = false;
+                        return
                     } else {
                         hideError('mobile-error');
                     }
@@ -484,6 +479,7 @@
                     if (!passwordRegex.test(password)) {
                         showError('password-error', 'Passwords must be at least 6 and at least one letter and one digit');
                         isValid = false;
+                        return
                     } else {
                         hideError('password-error');
                     }
@@ -491,6 +487,7 @@
                     if(password!=confirmPassword){
                         showError('confirmPassword-error','Passwords do not match')
                         isValid = false
+                        return
                     } else{
                         hideError('confirmPassword-error')
                     }

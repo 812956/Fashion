@@ -37,10 +37,6 @@ exports.view = asyncHandler(async (req, res) => {
     let shippingFee = 0
     let total = 0
 
-    // if (!cart || !cart.products) {
-    //     return res.status(OK).render('./user/profile/partials/checkout', { addresses, cart,subtotal,shippingFee,total,coupons});
-    // }
-
     let validProducts = [];
     let totalOfferAmount = 0
 
@@ -70,13 +66,6 @@ exports.view = asyncHandler(async (req, res) => {
                 item.quantity = quantity
             }
 
-            if(variant.offerDiscount){
-                
-                
-                // item.variantPrice = Math.round( item.variantPrice - (item.variantPrice*(variant.offerDiscount /100)))
-
-            }
-
 
             validProducts.push(item);
         });
@@ -104,8 +93,6 @@ exports.view = asyncHandler(async (req, res) => {
     //  total
      total = subtotal + (shippingFee === 'Free' ? 0 : 50);
   
-    
-
     res.status(OK).render('./user/profile/partials/checkout', { addresses, cart, subtotal, shippingFee, total , coupons});
 });
 
@@ -120,8 +107,6 @@ var instance = new Razorpay({
 // save to order
 exports.saveOrder = asyncHandler(async(req,res)=> {
 
-    
-  
     const { addressId, paymentMethod, coupon } = req.body;
    
     const userId = jwt.verify(req.cookies.jwtToken, process.env.JWT_KEY).userId;
@@ -133,7 +118,7 @@ exports.saveOrder = asyncHandler(async(req,res)=> {
         select: '_id name is_deleted'
     }).populate({
         path: 'products.variantId',
-        // select: '_id sizes stocks is_delete',
+        select: '_id sizes stocks is_delete',
     });
    
     if (!cart || !cart.products) {
@@ -159,10 +144,7 @@ exports.saveOrder = asyncHandler(async(req,res)=> {
             }
 
             const stockIndex = variant.sizes.indexOf(variantSize);
-            // if (stockIndex === -1 || variant.stocks[stockIndex] < quantity) {
-            //     // return; 
-            //     item.quantity = variant.stocks[stockIndex]
-            // }
+           
             if(variant.stocks[stockIndex] ==0){
                 return 
             }else if(variant.stocks[stockIndex] <= quantity){
@@ -173,13 +155,7 @@ exports.saveOrder = asyncHandler(async(req,res)=> {
             }
 
             
-            // if(variant.offerDiscount){
-                
-            //     item.variantPrice = Math.round( item.variantPrice - (item.variantPrice*(variant.offerDiscount /100)))
-
-            // }
-
-            
+        
             validProducts.push(item);
             console.log( validProducts)
         });
