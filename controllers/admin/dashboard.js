@@ -42,7 +42,6 @@ exports.view = asyncHandler(async (req, res) => {
 exports.getChartData = asyncHandler(async (req, res) => {
     const { filter } = req.query;
 
-    console.log(filter)
 
     let startDate, endDate;
     const now = new Date();
@@ -102,7 +101,7 @@ exports.getChartData = asyncHandler(async (req, res) => {
             { $limit: 10 }
         ]);
 
-        console.log( bestSellingProducts,bestSellingCategories, bestSellingBrands)
+        
 
         res.json({
             bestSellingProducts,
