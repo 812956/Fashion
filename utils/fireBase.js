@@ -66,22 +66,5 @@
   })
 
 
-const facebookLogin = document.getElementById('facebook-login-btn')
 
-facebookLogin.addEventListener('click',function(){
-  signInWithPopup(auth, facebookProvider)
-  .then((result) => {
-    
-    const user = result.user;
-    const credential = FacebookAuthProvider.credentialFromResult(result);
-    const accessToken = credential.accessToken;
 
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-  });
-
-})

@@ -171,7 +171,7 @@
         const options = p1.split(",");
         const hex = options[0].toString();
         const transparent = options[1].toString();
-
+    
         var c;
         if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
           c = hex.substring(1).split("");
@@ -191,11 +191,11 @@
       };
       window.hs_config.gulpDarken = (p1) => {
         const options = p1.split(",");
-
+    
         let col = options[0].toString();
         let amt = -parseInt(options[1]);
         var usePound = false;
-
+    
         if (col[0] == "#") {
           col = col.slice(1);
           usePound = true;
@@ -223,11 +223,11 @@
       };
       window.hs_config.gulpLighten = (p1) => {
         const options = p1.split(",");
-
+    
         let col = options[0].toString();
         let amt = parseInt(options[1]);
         var usePound = false;
-
+    
         if (col[0] == "#") {
           col = col.slice(1);
           usePound = true;
@@ -254,6 +254,7 @@
         return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
       };
     </script>
+    
 
 
   </head>
