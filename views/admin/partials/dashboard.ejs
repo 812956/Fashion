@@ -7,7 +7,6 @@
 
     <script
       src="/admin/admincontroll/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
-
     <!-- ========== HEADER ========== -->
 
     <header id="header"
@@ -755,141 +754,7 @@
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-      // Global variables to store chart instances
-      let bestSellingProductsChart;
-      let bestSellingCategoriesChart;
-      let bestSellingBrandsChart;
-
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.filter-button').forEach(button => {
-          button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-            fetchChartData(filter);
-          });
-        });
-
-        // Fetch initial data for yearly filter
-        fetchChartData('yearly');
-      });
-
-      async function fetchChartData(filter) {
-        try {
-          const response = await fetch(`/admin/dashboard-data?filter=${filter}`);
-          const data = await response.json();
-
-          const productNames = data.bestSellingProducts.map(item => item._id);
-          const productQuantities = data.bestSellingProducts.map(item => item.totalSold);
-          const categoryNames = data.bestSellingCategories.map(item => item.categoryName);
-          const categoryQuantities = data.bestSellingCategories.map(item => item.totalSold);
-          const brandNames = data.bestSellingBrands.map(item => item._id);
-          const brandQuantities = data.bestSellingBrands.map(item => item.totalSold);
-
-          renderBarChart('bestSellingProductsChart', productNames, productQuantities);
-          renderDoughnutChart('bestSellingCategoriesChart', categoryNames, categoryQuantities);
-          renderPieChart('bestSellingBrandsChart', brandNames, brandQuantities);
-
-          // Update tables
-          updateTable('bestSellingProductsTable', data.bestSellingProducts, ['_id', 'totalSold']);
-          updateTable('bestSellingCategoriesTable', data.bestSellingCategories, ['categoryName', 'totalSold']);
-          updateTable('bestSellingBrandsTable', data.bestSellingBrands, ['_id', 'totalSold']);
-
-
-          
-
-        } catch (error) {
-          console.error('Error fetching chart data:', error);
-        }
-      }
-
-      function updateTable(tableId, data, fields) {
-    const tableBody = document.getElementById(tableId);
-    tableBody.innerHTML = ''; // Clear existing table data
-
-    data.forEach(item => {
-      const row = document.createElement('tr');
-      fields.forEach(field => {
-        const cell = document.createElement('td');
-        cell.textContent = item[field];
-        row.appendChild(cell);
-      });
-      tableBody.appendChild(row);
-    });
-  }
-
-      function renderBarChart(canvasId, labels, data) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
-        if (bestSellingProductsChart) {
-          bestSellingProductsChart.destroy();
-        }
-        bestSellingProductsChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [{
-              backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
-              data: data
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      }
-
-      function renderDoughnutChart(canvasId, labels, data) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
-        if (bestSellingCategoriesChart) {
-          bestSellingCategoriesChart.destroy();
-        }
-        bestSellingCategoriesChart = new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: labels,
-            datasets: [{
-              backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
-              data: data
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-              text: "Best Selling Categories"
-            }
-          }
-        });
-      }
-
-      function renderPieChart(canvasId, labels, data) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
-        if (bestSellingBrandsChart) {
-          bestSellingBrandsChart.destroy();
-        }
-        bestSellingBrandsChart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-            labels: labels,
-            datasets: [{
-              backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
-              data: data
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-              text: "Best Selling Brands"
-            }
-          }
-        });
-      }
-    </script>
-
+  
 
 
     <!-- ONLY DEV -->
@@ -4662,6 +4527,146 @@
           })
         })()
     </script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Global variables to store chart instances
+    let bestSellingProductsChart;
+    let bestSellingCategoriesChart;
+    let bestSellingBrandsChart;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          fetchChartData(filter);
+        });
+      });
+
+      // Fetch initial data for yearly filter
+      fetchChartData('yearly');
+    });
+
+    async function fetchChartData(filter) {
+      try {
+        const response = await fetch(`/admin/dashboard-data?filter=${filter}`);
+        const data = await response.json();
+
+        const productNames = data.bestSellingProducts.map(item => item._id);
+        const productQuantities = data.bestSellingProducts.map(item => item.totalSold);
+        const categoryNames = data.bestSellingCategories.map(item => item.categoryName);
+        const categoryQuantities = data.bestSellingCategories.map(item => item.totalSold);
+        const brandNames = data.bestSellingBrands.map(item => item._id);
+        const brandQuantities = data.bestSellingBrands.map(item => item.totalSold);
+
+        renderBarChart('bestSellingProductsChart', productNames, productQuantities);
+        renderDoughnutChart('bestSellingCategoriesChart', categoryNames, categoryQuantities);
+        renderPieChart('bestSellingBrandsChart', brandNames, brandQuantities);
+
+        // Update tables
+        updateTable('bestSellingProductsTable', data.bestSellingProducts, ['_id', 'totalSold']);
+        updateTable('bestSellingCategoriesTable', data.bestSellingCategories, ['categoryName', 'totalSold']);
+        updateTable('bestSellingBrandsTable', data.bestSellingBrands, ['_id', 'totalSold']);
+
+
+        
+
+      } catch (error) {
+        console.error('Error fetching chart data:', error);
+      }
+    }
+
+    function updateTable(tableId, data, fields) {
+  const tableBody = document.getElementById(tableId);
+  tableBody.innerHTML = ''; // Clear existing table data
+
+  data.forEach(item => {
+    const row = document.createElement('tr');
+    fields.forEach(field => {
+      const cell = document.createElement('td');
+      cell.textContent = item[field];
+      row.appendChild(cell);
+    });
+    tableBody.appendChild(row);
+  });
+}
+
+    function renderBarChart(canvasId, labels, data) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      if (bestSellingProductsChart) {
+        bestSellingProductsChart.destroy();
+      }
+      bestSellingProductsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
+            data: data
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
+
+    function renderDoughnutChart(canvasId, labels, data) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      if (bestSellingCategoriesChart) {
+        bestSellingCategoriesChart.destroy();
+      }
+      bestSellingCategoriesChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
+            data: data
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Best Selling Categories"
+          }
+        }
+      });
+    }
+
+    function renderPieChart(canvasId, labels, data) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      if (bestSellingBrandsChart) {
+        bestSellingBrandsChart.destroy();
+      }
+      bestSellingBrandsChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: labels,
+          datasets: [{
+            backgroundColor: ['red', 'green', 'blue', 'orange', 'brown'],
+            data: data
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Best Selling Brands"
+          }
+        }
+      });
+    }
+  </script>
+
+
 
     <!-- End Style Switcher JS -->
     <%- include('../layouts/footer')%>

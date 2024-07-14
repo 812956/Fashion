@@ -7,7 +7,7 @@ const productCLTN = require('../../modles/admin/productModal')
 
 exports.view = asyncHandler(async (req, res) => {
     // Fetch total users
-    const totalUsers = await userCLTN.countDocuments({});
+    const totalUsers = await userCLTN.countDocuments({},{_id:1});
 
     // Fetch total orders
     const totalOrders = await ordersCLTN.countDocuments({});
@@ -16,11 +16,11 @@ exports.view = asyncHandler(async (req, res) => {
     const orders = await ordersCLTN.find({});
     let totalRevenue = 0;
     orders.forEach(order => {
-        console.log(order.deliveryCharge)
+       
         totalRevenue += order.deliveryCharge
         order.products.forEach(product => {
             if (product.orderstatus === "Delivered") {
-                    console.log(product.subtotal)
+                  
                 totalRevenue += product.subtotal;
             }
         });
