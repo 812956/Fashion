@@ -20,10 +20,12 @@ exports.view = asyncHandler(async (req, res) => {
         select: '_id name is_deleted'
     }).populate({
         path: 'products.variantId',
-        // select: '_id sizes stocks is_delete',
+        select: '_id sizes stocks is_delete',
     });
 
-    if(!cart || !cart.products){
+  
+
+    if(!cart || !cart.products || cart.products.length ===0){
         return res.status(OK).redirect('/cart')
     }else if(cart && cart.products.length==0){
         return res.status(OK).redirect('/cart')
@@ -35,9 +37,9 @@ exports.view = asyncHandler(async (req, res) => {
     let shippingFee = 0
     let total = 0
 
-    if (!cart || !cart.products) {
-        return res.status(OK).render('./user/profile/partials/checkout', { addresses, cart,subtotal,shippingFee,total,coupons});
-    }
+    // if (!cart || !cart.products) {
+    //     return res.status(OK).render('./user/profile/partials/checkout', { addresses, cart,subtotal,shippingFee,total,coupons});
+    // }
 
     let validProducts = [];
     let totalOfferAmount = 0
@@ -58,10 +60,7 @@ exports.view = asyncHandler(async (req, res) => {
             }
 
             const stockIndex = variant.sizes.indexOf(variantSize);
-            // if (stockIndex === -1 || variant.stocks[stockIndex] < quantity) {
-            //     item.quantity = variant.stocks[stockIndex]
-            //     // return; 
-            // }
+          
             if(variant.stocks[stockIndex] ==0){
                 return 
             }else if(variant.stocks[stockIndex] <= quantity){
@@ -85,6 +84,13 @@ exports.view = asyncHandler(async (req, res) => {
         cart.products = validProducts;
 
     
+    }
+
+   
+    if(!cart || !cart.products || cart.products.length ===0){
+        return res.status(OK).redirect('/cart')
+    }else if(cart && cart.products.length==0){
+        return res.status(OK).redirect('/cart')
     }
 
     //  subtotal
