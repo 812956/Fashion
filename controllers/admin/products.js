@@ -50,6 +50,7 @@ exports.viewaddProduct = asyncHandler(async (req,res)=>{
      res.status(OK).render('admin/partials/products/addProducts',{types})
 })
 
+
 // add products
 exports.addProduct = asyncHandler(async (req,res)=>{
 
@@ -57,9 +58,9 @@ exports.addProduct = asyncHandler(async (req,res)=>{
     const {
      productName,
      description,
-     price,
-     currency,
-     discount,
+     // price,
+     // currency,
+     // discount,
      brand,
      selectedTypeOptionValue,
      selectedTypeOptionText,
@@ -82,13 +83,13 @@ exports.addProduct = asyncHandler(async (req,res)=>{
      name:productName,
      description:description,
      categoryId:selectedCategoryOptionValue,
-     originalPrice:parseFloat(price),
-     discountPercentage:parseFloat(discount),
-     currency:currency,
+     // originalPrice:parseFloat(price),
+     // discountPercentage:parseFloat(discount),
+     // currency:currency,
      brand:brand,
      material:material,
      sizes:sizes.split(','),
-     // thumbnail:thumbnailImagePaths
+     
      })
 
      const product = await newProduct.save()
@@ -111,7 +112,6 @@ exports.editProduct = asyncHandler(async(req,res)=>{
      
      const {name,description,currency,originalPrice,discountPercentage,sizes} = req.body   
      
-    
      if(name){
           const regexPattern = new RegExp(`^${name}$`,'i')
           const duplicateCheck = await productsCLTN.findOne({name:regexPattern})
@@ -159,7 +159,7 @@ exports.editProduct = asyncHandler(async(req,res)=>{
 // view product details
 exports.veiwProductDetails = asyncHandler( async(req,res)=>{
    
-     console.log(req.query.productId)
+   
       const [product,variants] = await Promise.all([
           productsCLTN.findOne({_id:req.query.productId}),
           productsVariantsCLTN.find({productId:req.query.productId})
@@ -190,17 +190,21 @@ exports.addVariant = asyncHandler(async(req,res)=>{
        return res.status(CONFLICT).json({success:false,message:"Product variant with the same color already exists. Please choose a different color or update the existing variant."})
      }
 
-     const productImagePaths = []
+     let productImagePaths = []
     
      for(let i=0;i<req.files.length;i++){
      
-          const imagePaths = `/admin/uploads/products/${req.files[i].originalname.toLowerCase().replace(/\s+/g, '-')}_${`thumbnail${i}`}_${Date.now()}.png`
+          const imagePaths = `/admin/uploads/products/${req.files[i].originalname.toLowerCase().replace(/\s+/g, '-')}.png`
           productImagePaths.push(imagePaths)
           const processedImageBuffer = await sharp(req.files[i].buffer)
                 .png({quality:90})
                 .toFile(`public/${imagePaths}`)
 
      }
+
+     
+     productImagePaths = [...new Set(productImagePaths)]
+     console.log('this is image paths jfkdsjfakdfjskll',productImagePaths)
      
      const allprices = [...prices.split(',').map(x => parseFloat(x))]
      const allstocks = [...stocks.split(',').map(x => parseFloat(x))]
@@ -248,8 +252,6 @@ exports.vieweditVariant = asyncHandler(async(req,res)=> {
        return res.status(NOT_FOUND).redirect('/404')
      }
 
-     console.log(productVariant)
-
      res.status(OK).render('admin/partials/products/editVariant',{productVariant})
 
 })
@@ -263,18 +265,15 @@ exports.editVariant = asyncHandler(async(req,res)=> {
    const varinatId = req.query.variantId
    let productId = await productsVariantsCLTN.findOne({_id:varinatId},{productId:1})
    productId = productId.productId
-   console.log(productId)
-
-   console.log(req.body)
-   console.log(req.files)
+  
 
    if(color){
      const regexPattern = new RegExp(`^${color}$`,'i')
      const checkDuplicate = await productsVariantsCLTN.findOne({productId:productId,color:regexPattern})
-     console.log(checkDuplicate)
+  
     
      if(checkDuplicate){
-          console.log('hello')
+         
           return res.status(CONFLICT).json({success:false,message:"Product variant with the same color already exists. Please choose a different color or update the existing variant."})
      }
 
@@ -300,7 +299,7 @@ exports.editVariant = asyncHandler(async(req,res)=> {
      let variantImages = await productsVariantsCLTN.findOne({_id:varinatId})
      
 
-     console.log(variantImages)
+
 
      for (const [index, file] of req.files.entries()) {
           const imagePath = `/admin/uploads/products/${file.originalname.toLowerCase().replace(/\s+/g, '-')}_thumbnail${index}_${Date.now()}.png`;
@@ -336,7 +335,13 @@ exports.editVariant = asyncHandler(async(req,res)=> {
 exports.ListUnlistVariant = (async(req,res)=> {
 
      const variantId = req.params.variantId
-     console.log(variantId)
+     const variant = await productsVariantsCLTN.findOne({_id:variantId})
+
+     variant.is_delete = !variant.is_delete
+
+     await variant.save()
+
+     res.status(OK).json({success:true})
 
 })
 

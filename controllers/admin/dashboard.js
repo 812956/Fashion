@@ -101,7 +101,6 @@ exports.getChartData = asyncHandler(async (req, res) => {
             { $limit: 10 }
         ]);
 
-        
 
         res.json({
             bestSellingProducts,

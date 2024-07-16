@@ -8,7 +8,7 @@
 
   <!-- ========== HEADER ========== -->
 
-  <header id="header"
+<header id="header"
   class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
   <div class="navbar-nav-wrap">
     <!-- Logo -->
@@ -162,236 +162,235 @@
   </div>
 </header>
 
+ 
+<aside
+class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
+<div class="navbar-vertical-container">
+  <div class="navbar-vertical-footer-offset">
+    <!-- Logo -->
+
+    <a class="navbar-brand" href="index.html" aria-label="Front">
+      <img class="navbar-brand-logo" src="/admin/admincontroll/assets/svg/logos/logo.svg" alt="Logo"
+        data-hs-theme-appearance="default">
+      <img class="navbar-brand-logo" src="/admin/admincontroll/assets/svg/logos-light/logo.svg" alt="Logo"
+        data-hs-theme-appearance="dark">
+      <img class="navbar-brand-logo-mini" src="/admin/admincontroll/assets/svg/logos/logo-short.svg" alt="Logo"
+        data-hs-theme-appearance="default">
+      <img class="navbar-brand-logo-mini" src="/admin/admincontroll/assets/svg/logos-light/logo-short.svg"
+        alt="Logo" data-hs-theme-appearance="dark">
+    </a>
+
+    <!-- End Logo -->
+
+    <!-- Navbar Vertical Toggle -->
+    <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+      <i class="bi-arrow-bar-left navbar-toggler-short-align"
+        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+      <i class="bi-arrow-bar-right navbar-toggler-full-align"
+        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+    </button>
+
+    <!-- End Navbar Vertical Toggle -->
+
+    <!-- Content -->
+    <div class="navbar-vertical-content">
+      <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+        <!-- Collapse -->
+        <div class="nav-item">
+
+          <a class="nav-link" href="/admin/admin_panel"> <i class="bi-house-door nav-icon"></i><span
+              class="nav-link-title">Dashboards</span></a>
+
+        </div>
+        <!-- End Collapse -->
+
+        <span class="dropdown-header mt-4">Pages</span>
+        <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+        <!-- Collapse -->
+        <div class="navbar-nav nav-compact">
+
+        </div>
+        <div id="navbarVerticalMenuPagesMenu">
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false"
+              aria-controls="navbarVerticalMenuPagesUsersMenu">
+              <i class="bi-person nav-icon"></i>
+              <span class="nav-link-title">Users</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse "
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link " href="/admin/admin_panel/customers_management">Overview</a>
+            
+          
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesAccountMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesAccountMenu" aria-expanded="false"
+              aria-controls="navbarVerticalMenuPagesAccountMenu">
+              <i class="fa-solid fa-list nav-icon"></i>
+              <span class="nav-link-title">Categories</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesAccountMenu" class="nav-collapse collapse "
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link " href="/admin/admin_panel/categories">Categories Details</a>
+              <a class="nav-link " href="/admin/admin_panel/add_category">Add Categories</a>
+              <a class="nav-link " href="/admin/admin_panel/types">Types Details</a>
+              <a class="nav-link " href="/admin/admin_panel/add_type">Add Type</a>
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesProductsMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesProductsMenu"
+              aria-expanded="false" aria-controls="navbarVerticalMenuPagesProductsMenu">
+              <i class="bi bi-cart nav-icon"></i>
+              <span class="nav-link-title">Products</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesProductsMenu" class="nav-collapse collapse"
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link" href="/admin/admin_panel/products_management">Products</a>
+              <!-- <a class="nav-link" href="account-billing.html">Products Details</a> -->
+              <a class="nav-link" href="/admin/admin_panel/products_management/add_product">Add Product</a>
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesOrdersMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesOrdersMenu" aria-expanded="false"
+              aria-controls="navbarVerticalMenuPagesOrdersMenu">
+              <i class="bi bi-receipt nav-icon"></i>
+              <span class="nav-link-title">Orders</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesOrdersMenu" class="nav-collapse collapse"
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link" href="/admin/admin_panel/orders">Orders</a>
+             
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesCouponsMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesCouponsMenu" aria-expanded="false"
+              aria-controls="navbarVerticalMenuPagesCouponsMenu">
+              <i class="bi bi-ticket nav-icon"></i>
+              <span class="nav-link-title">Coupons</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesCouponsMenu" class="nav-collapse collapse"
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link" href="/admin/admin_panel/coupon_management/coupons">Manage Coupons</a>
+              <a class="nav-link" href="/admin/admin_panel/coupon_management/add_coupon">Create Coupon</a>
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+
+          <!-- Collapse -->
+          <div class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesOffersMenu" role="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesOffersMenu" aria-expanded="false"
+              aria-controls="navbarVerticalMenuPagesOffersMenu">
+              <i class="bi bi-gift nav-icon"></i> <!-- Changed icon to represent Offers -->
+              <span class="nav-link-title">Offers</span>
+            </a>
+
+            <div id="navbarVerticalMenuPagesOffersMenu" class="nav-collapse collapse"
+              data-bs-parent="#navbarVerticalMenuPagesMenu">
+              <a class="nav-link" href="/admin/admin_panel/offer_management/offers">Manage Offers</a>
+              <!-- Updated URL -->
+              <a class="nav-link" href="/admin/admin_panel/offer_management/add_offer">Create Offer</a>
+              <!-- Updated URL -->
+            </div>
+          </div>
+          <!-- End Collapse -->
+
+      
+
+
+     
+
+         
+         
+
+
+        <div class="nav-item">
+          <a class="nav-link " href="/admin/admin_panel/salesReport" data-placement="left">
+            <i class="bi-kanban nav-icon"></i>
+            <span class="nav-link-title">Sales Report</span>
+          </a>
+        </div>
+
+
+        
+      </div>
+
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <div class="navbar-vertical-footer">
+      <ul class="navbar-vertical-footer-list">
+        <li class="navbar-vertical-footer-list-item">
+          <!-- Style Switcher -->
+          <div class="dropdown dropup">
+            <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown"
+              data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+            </button>
+
+            <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless"
+              aria-labelledby="selectThemeDropdown">
+              <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                <i class="bi-moon-stars me-2"></i>
+                <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+              </a>
+              <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                <i class="bi-brightness-high me-2"></i>
+                <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+              </a>
+              <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                <i class="bi-moon me-2"></i>
+                <span class="text-truncate" title="Dark">Dark</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- End Style Switcher -->
+        </li>
+
+
+     
+      </ul>
+    </div>
+    <!-- End Footer -->
+  </div>
+</div>
+</aside>
+
   <!-- ========== END HEADER ========== -->
 
   <!-- ========== MAIN CONTENT ========== -->
   <!-- Navbar Vertical -->
-
- 
-  <aside
-  class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
-  <div class="navbar-vertical-container">
-    <div class="navbar-vertical-footer-offset">
-      <!-- Logo -->
-
-      <a class="navbar-brand" href="index.html" aria-label="Front">
-        <img class="navbar-brand-logo" src="/admin/admincontroll/assets/svg/logos/logo.svg" alt="Logo"
-          data-hs-theme-appearance="default">
-        <img class="navbar-brand-logo" src="/admin/admincontroll/assets/svg/logos-light/logo.svg" alt="Logo"
-          data-hs-theme-appearance="dark">
-        <img class="navbar-brand-logo-mini" src="/admin/admincontroll/assets/svg/logos/logo-short.svg" alt="Logo"
-          data-hs-theme-appearance="default">
-        <img class="navbar-brand-logo-mini" src="/admin/admincontroll/assets/svg/logos-light/logo-short.svg"
-          alt="Logo" data-hs-theme-appearance="dark">
-      </a>
-
-      <!-- End Logo -->
-
-      <!-- Navbar Vertical Toggle -->
-      <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
-        <i class="bi-arrow-bar-left navbar-toggler-short-align"
-          data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
-          data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
-        <i class="bi-arrow-bar-right navbar-toggler-full-align"
-          data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
-          data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
-      </button>
-
-      <!-- End Navbar Vertical Toggle -->
-
-      <!-- Content -->
-      <div class="navbar-vertical-content">
-        <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
-          <!-- Collapse -->
-          <div class="nav-item">
-
-            <a class="nav-link" href="/admin/admin_panel"> <i class="bi-house-door nav-icon"></i><span
-                class="nav-link-title">Dashboards</span></a>
-
-          </div>
-          <!-- End Collapse -->
-
-          <span class="dropdown-header mt-4">Pages</span>
-          <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-          <!-- Collapse -->
-          <div class="navbar-nav nav-compact">
-
-          </div>
-          <div id="navbarVerticalMenuPagesMenu">
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false"
-                aria-controls="navbarVerticalMenuPagesUsersMenu">
-                <i class="bi-person nav-icon"></i>
-                <span class="nav-link-title">Users</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse "
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link " href="/admin/admin_panel/customers_management">Overview</a>
-              
-            
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesAccountMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesAccountMenu" aria-expanded="false"
-                aria-controls="navbarVerticalMenuPagesAccountMenu">
-                <i class="fa-solid fa-list nav-icon"></i>
-                <span class="nav-link-title">Categories</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesAccountMenu" class="nav-collapse collapse "
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link " href="/admin/admin_panel/categories">Categories Details</a>
-                <a class="nav-link " href="/admin/admin_panel/add_category">Add Categories</a>
-                <a class="nav-link " href="/admin/admin_panel/types">Types Details</a>
-                <a class="nav-link " href="/admin/admin_panel/add_type">Add Type</a>
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesProductsMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesProductsMenu"
-                aria-expanded="false" aria-controls="navbarVerticalMenuPagesProductsMenu">
-                <i class="bi bi-cart nav-icon"></i>
-                <span class="nav-link-title">Products</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesProductsMenu" class="nav-collapse collapse"
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link" href="/admin/admin_panel/products_management">Products</a>
-                <!-- <a class="nav-link" href="account-billing.html">Products Details</a> -->
-                <a class="nav-link" href="/admin/admin_panel/products_management/add_product">Add Product</a>
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesOrdersMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesOrdersMenu" aria-expanded="false"
-                aria-controls="navbarVerticalMenuPagesOrdersMenu">
-                <i class="bi bi-receipt nav-icon"></i>
-                <span class="nav-link-title">Orders</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesOrdersMenu" class="nav-collapse collapse"
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link" href="/admin/admin_panel/orders">Orders</a>
-                <a class="nav-link" href="/admin_panel/orders/track">Track Orders</a>
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesCouponsMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesCouponsMenu" aria-expanded="false"
-                aria-controls="navbarVerticalMenuPagesCouponsMenu">
-                <i class="bi bi-ticket nav-icon"></i>
-                <span class="nav-link-title">Coupons</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesCouponsMenu" class="nav-collapse collapse"
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link" href="/admin/admin_panel/coupon_management/coupons">Manage Coupons</a>
-                <a class="nav-link" href="/admin/admin_panel/coupon_management/add_coupon">Create Coupon</a>
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-
-            <!-- Collapse -->
-            <div class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesOffersMenu" role="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesOffersMenu" aria-expanded="false"
-                aria-controls="navbarVerticalMenuPagesOffersMenu">
-                <i class="bi bi-gift nav-icon"></i> <!-- Changed icon to represent Offers -->
-                <span class="nav-link-title">Offers</span>
-              </a>
-
-              <div id="navbarVerticalMenuPagesOffersMenu" class="nav-collapse collapse"
-                data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link" href="/admin/admin_panel/offer_management/offers">Manage Offers</a>
-                <!-- Updated URL -->
-                <a class="nav-link" href="/admin/admin_panel/offer_management/add_offer">Create Offer</a>
-                <!-- Updated URL -->
-              </div>
-            </div>
-            <!-- End Collapse -->
-
-        
-
-
-       
-
-           
-           
-
-
-          <div class="nav-item">
-            <a class="nav-link " href="/admin/admin_panel/salesReport" data-placement="left">
-              <i class="bi-kanban nav-icon"></i>
-              <span class="nav-link-title">Sales Report</span>
-            </a>
-          </div>
-
-
-          
-        </div>
-
-      </div>
-      <!-- End Content -->
-
-      <!-- Footer -->
-      <div class="navbar-vertical-footer">
-        <ul class="navbar-vertical-footer-list">
-          <li class="navbar-vertical-footer-list-item">
-            <!-- Style Switcher -->
-            <div class="dropdown dropup">
-              <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown"
-                data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-
-              </button>
-
-              <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless"
-                aria-labelledby="selectThemeDropdown">
-                <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
-                  <i class="bi-moon-stars me-2"></i>
-                  <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
-                </a>
-                <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
-                  <i class="bi-brightness-high me-2"></i>
-                  <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
-                </a>
-                <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
-                  <i class="bi-moon me-2"></i>
-                  <span class="text-truncate" title="Dark">Dark</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- End Style Switcher -->
-          </li>
-
-
-       
-        </ul>
-      </div>
-      <!-- End Footer -->
-    </div>
-  </div>
-</aside>
-
 
   <main id="content" role="main" class="main">
     <!-- Content -->
@@ -619,8 +618,8 @@
                     <th class="table-column-ps-0">
                       <div class="btn-group" role="group" aria-label="Action buttons">
                         <a href="/admin/admin_panel/products_management/edit_variant?variantId=<%=variants[i]._id%>" class="btn btn-primary me-2" role="button">Edit</a>
-                        <a onclick="listUnlist('<%=variants[i]._id%>')" style="color: white;" class="btn me-2 <%=variants[i].is_delete ? 'btn-success' : 'btn-status-danger'%>" role="button">
-                          <%= variants[i].is_delete ? 'List' : 'Unlist' %> <!-- Change button text -->
+                        <a onclick="listUnlist(this,'<%=variants[i]._id%>')"  class="btn me-2 <%=variants[i].is_delete ? 'btn-success' : 'btn-status-danger'%>" role="button">
+                          <%= variants[i].is_delete ? 'List' : 'Unlist' %> 
                       </a>
                       
                       </div>
@@ -641,9 +640,7 @@
 
             <!-- Footer -->
             <div class="card-footer">
-              <a class="js-create-field btn btn-sm btn-ghost-secondary" href="javascript:;">
-                <i class="bi-plus"></i> Add variant
-              </a>
+            
             </div>
             <!-- End Footer -->
 
@@ -774,55 +771,7 @@
               </div>
               <!-- End Form -->
 
-              <!-- Form -->
-              <!-- <div class="mb-4">
-                <label for="categoryLabel" class="form-label">Category</label> -->
-
-                <!-- Select -->
-                <!-- <div class="tom-select-custom">
-                  <select class="js-select form-select" autocomplete="off" id="categoryLabel" data-hs-tom-select-options='{
-                            "searchInDropdown": false,
-                            "hideSearch": true,
-                            "placeholder": "Select category"
-                          }'>
-                    <option label="empty"></option>
-                    <option value="Clothing" selected>Clothing</option>
-                    <option value="Shoes">Shoes</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Others">Others</option>
-                  </select>
-                </div> -->
-                <!-- End Select -->
-              <!-- </div> -->
-              <!-- Form -->
-
-              <!-- Form -->
-              <!-- <div class="mb-4">
-                <label for="collectionsLabel" class="form-label">Collections</label> -->
-
-                <!-- Select -->
-                <!-- <div class="tom-select-custom">
-                  <select class="js-select form-select" autocomplete="off" id="collectionsLabel" data-hs-tom-select-options='{
-                            "searchInDropdown": false,
-                            "hideSearch": true,
-                            "placeholder": "Select collections"
-                          }'>
-                    <option label="empty"></option>
-                    <option value="Winter">Winter</option>
-                    <option value="Spring">Spring</option>
-                    <option value="Summer" selected>Summer</option>
-                    <option value="Autumn">Autumn</option>
-                  </select>
-                </div> -->
-                <!-- End Select -->
-
-                <!-- <span class="form-text">Add this product to a collection so it’s easy to find in your store.</span>
-              </div> -->
-              <!-- Form -->
-<!-- 
-              <label for="tagsLabel" class="form-label">Tags</label>
-
-              <input type="text" class="form-control" id="tagsLabel" placeholder="Enter tags here" aria-label="Enter tags here"> -->
+             
             </div>
             <!-- Body -->
           </div>
@@ -832,29 +781,7 @@
       </div>
       <!-- End Row -->
 
-      <div class="position-fixed start-50 bottom-0 translate-middle-x w-100 zi-99 mb-3" style="max-width: 40rem;">
-        <!-- Card -->
-        <div class="card card-sm bg-dark border-dark mx-2">
-          <div class="card-body">
-            <div class="row justify-content-center justify-content-sm-between">
-              <div class="col">
-                <button type="button" class="btn btn-ghost-danger">Delete</button>
-              </div>
-              <!-- End Col -->
-
-              <div class="col-auto">
-                <div class="d-flex gap-3">
-                  <button type="button" class="btn btn-ghost-light">Discard</button>
-                  <button type="button" class="btn btn-primary">Save</button>
-                </div>
-              </div>
-              <!-- End Col -->
-            </div>
-            <!-- End Row -->
-          </div>
-        </div>
-        <!-- End Card -->
-      </div>
+     
     </div>
     <!-- End Content -->
 
@@ -4049,32 +3976,109 @@
         })
       })()
     </script>
-           <script>
-            // JavaScript function to toggle list/unlist status
-            async function listUnlist(variantId) {
-                try {
-                    const response = await fetch(`/admin_panel/products_management/listUnlistVariant/${variantId}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    });
-                    if (!response.ok) {
-                        throw new Error('Failed to toggle list status');
-                    }
-                    const data = await response.json();
-                    // Update button text and style based on the response
-                    const button = document.querySelector(`[data-variant-id="${variantId}"]`);
-                    if (button) {
-                        button.textContent = data.isListed ? 'List' : 'Unlist';
-                        button.classList.toggle('btn-success', data.isListed);
-                        button.classList.toggle('btn-status-danger', !data.isListed);
-                    }
-                } catch (error) {
-                    console.error('Error toggling list status:', error);
-                    // Handle error if necessary
-                }
-            }
-        </script>
 
+<script>
+  // JavaScript function to toggle list/unlist status
+  async function listUnlist(variantId) {
+      try {
+          const { value: confirmed } = await Swal.fire({
+              title: 'Are you sure?',
+              text: 'All variants will be unlisted.',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, unlist it!',
+              cancelButtonText: 'Cancel'
+          });
+
+          if (confirmed) {
+              const response = await fetch(`/admin/admin_panel/products_management/listUnlistVariant/${variantId}`, {
+                  method: 'PUT',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+
+              if (!response.ok) {
+                  throw new Error('Failed to toggle list status');
+              }
+
+              const data = await response.json();
+
+              Swal.fire({
+                  title: 'Success',
+                  text: 'The variant has been successfully unlisted.',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+              }).then(() => {
+                  window.location.reload();
+              });
+          }
+      } catch (error) {
+          console.error('Error toggling list status:', error);
+          Swal.fire({
+              title: 'Error',
+              text: 'There was an error while toggling the list status.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
+      }
+  }
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  // JavaScript function to toggle list/unlist status
+  async function listUnlist(element,variantId) {
+
+    let action = element.innerHTML 
+    action = action.trim()
+
+
+      try {
+          const { value: confirmed } = await Swal.fire({
+              title: 'Are you sure?',
+              text: `All variants will be ${action+'ed'}.`,
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: `Yes, ${action+'ed'} it! `,
+              cancelButtonText: 'Cancel'
+          });
+
+          if (confirmed) {
+              const response = await fetch(`/admin/admin_panel/products_management/listUnlistVariant/${variantId}`, {
+                  method: 'PUT',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+
+              if (!response.ok) {
+                  throw new Error('Failed to toggle list status');
+              }
+
+              const data = await response.json();
+
+              Swal.fire({
+                  title: 'Success',
+                  text: `The variant has been successfully ${action+'ed'}`,
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+              }).then(() => {
+                  window.location.reload();
+              });
+          }
+      } catch (error) {
+          console.error('Error toggling list status:', error);
+          Swal.fire({
+              title: 'Error',
+              text: 'There was an error while toggling the list status.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
+      }
+  }
+</script>
+
+         
 <%- include('../../layouts/footer')%>

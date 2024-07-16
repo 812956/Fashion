@@ -626,7 +626,8 @@
 
                                        <% if (products.length > 0) { %>
                                         <% for(let product of products){%>
-                                            <% if (product.firstVariant!==null) { %>
+                                            
+                                            <% if (product.firstVariant) { %>
                                             <div class="col mb-30">
                                                 <div class="product__items ">
                                                     <div class="product__items--thumbnail">

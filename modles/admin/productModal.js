@@ -18,15 +18,15 @@ const productSchema = new mongoose.Schema({
     },
     originalPrice: {
         type: Number,
-        required: true
+        // required: true
     },
     discountPercentage: {
         type: Number,
-        default: true
+        // default: true
     },
     currency:{
         type:String,
-        default:true
+        // default:true
     },
     brand: {
         type: String,

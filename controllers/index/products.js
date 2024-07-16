@@ -9,7 +9,6 @@ const productVariantsCLTN = require('../../modles/admin/productsVariantsMd');
 
 
 // Controller logic to handle pagination filter sorting
-
 exports.view = asyncHandler(async (req, res) => {
     const categoryId = req.query.category;
     const sortBy = req.query.sortBy || 'priceAsc';
@@ -87,6 +86,11 @@ exports.view = asyncHandler(async (req, res) => {
                             }
                         }, 0]
                     }
+                }
+            },
+            {
+                $match: {
+                    firstVariant: { $ne: null } // Ensure there is at least one non-deleted variant
                 }
             },
             {
@@ -180,6 +184,11 @@ exports.view = asyncHandler(async (req, res) => {
                                 }
                             }, 0]
                         }
+                    }
+                },
+                {
+                    $match: {
+                        firstVariant: { $ne: null } // Ensure there is at least one non-deleted variant
                     }
                 },
                 {
