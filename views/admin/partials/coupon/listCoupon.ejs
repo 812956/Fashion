@@ -1332,38 +1332,7 @@
    
       <!-- End Row -->
 
-      <!-- Date Filters -->
-  <!-- <div class="date-filter mb-3">
-    <input type="date" id="startDate" name="startDate">
-    <input type="date" id="endDate" name="endDate">
-    <button class="btn btn-primary btn-sm" onclick="applyCustomDateFilter()">Apply Date Range</button>
-  
-    <button class="btn btn-outline-primary btn-sm" onclick="applyRangeFilter('day')">1 Day</button>
-    <button class="btn btn-outline-primary btn-sm" onclick="applyRangeFilter('week')">1 Week</button>
-    <button class="btn btn-outline-primary btn-sm" onclick="applyRangeFilter('month')">1 Month</button>
-  </div>
-  
-  <script>
-    // JavaScript functions for applying filters and redirecting
-
-function applyCustomDateFilter() {
-  const startDate = document.getElementById('startDate').value;
-  const endDate = document.getElementById('endDate').value;
-
-  if (startDate && endDate) {
-    const encodedStartDate = encodeURIComponent(startDate);
-    const encodedEndDate = encodeURIComponent(endDate);
-    window.location.href = `/admin/admin_panel/salesReport?startDate=${encodedStartDate}&endDate=${encodedEndDate}`;
-  } else {
-    alert('Please select both start and end dates.');
-  }
-}
-
-function applyRangeFilter(range) {
-  window.location.href = `/admin/admin_panel/salesReport?range=${range}`;
-}
-
-  </script> -->
+   
 
       <!-- Card -->
       <div class="card">
@@ -1663,50 +1632,6 @@ function applyRangeFilter(range) {
     }
   </script>
   
-
-<!-- <script>
-    async function Delete(couponId) {
-     
-      try {
- 
- 
-       const response = await fetch(`/admin/admin_panel/coupon_management/delete_coupon/${couponId}`,{
-         method:'DELETE',
-         headers:{
-           'Content-Type':'application/json'
-         }
-       })
-       const data = await response.json()
-     
-       if(data.success){
-         Swal.fire({
-                 icon: 'success',
-                 title: 'Deleted!',
-                 text: data.message,
-             }).then(() => {
-                 // Remove the coupon card from the UI
-                 window.location.reload()
-                
-             });
-       }else{
-         Swal.fire({
-                 icon: 'error',
-                 title: 'Error',
-                 text: data.message,
-             });
-       }
-       
-      } catch (error) {
-       
-      }
- 
-    }
-   </script> -->
-
-
-  
-  
- 
 
 
         <!-- Footer -->
