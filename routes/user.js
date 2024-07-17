@@ -17,6 +17,7 @@ const orderListing = require("../controllers/users/ordersListing");
 const wallet = require("../controllers/users/wallet");
 const wishList = require("../controllers/users/wishList");
 const { errorHandler } = require("../utils/errorHandler");
+const emailChanging = require("../controllers/users/emailChanging")
 
 //===================landing page=====================
 router.get("/", userAuth.is_notBlocked, landingPage.viewLandingPage);
@@ -144,6 +145,13 @@ router.route("/wishList").get(userAuth.isProfileAllowed,wishList.view);
 router.route("/wishList/add").post(userAuth.notBlocked_haveJwt,wishList.addTowishList);
 
 router.route("/wishList/delete").delete(wishList.deleteItem);
+
+
+//================ Email Changing ==========================
+router.post('/send-otp-email',emailChanging.sendOtp)
+router.post('/verify-otp-email',emailChanging.verifyOtp)
+router.post('/update-email',emailChanging.updateEmail)
+
 
 router.use(errorHandler);
 module.exports = router;
