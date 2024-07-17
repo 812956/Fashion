@@ -17,6 +17,8 @@ exports.view = asyncHandler(async(req,res)=>{
 
 exports.addTowishList = asyncHandler(async(req,res)=>{
 
+    console.log('hello worl howlsdjlkfjakj')
+
     const { productName, selectedColor, selectedSize, productPrice, productId } =
     req.body;
 
@@ -29,7 +31,7 @@ exports.addTowishList = asyncHandler(async(req,res)=>{
     const userId = jwt.verify(req.cookies.jwtToken,process.env.JWT_KEY).userId
 
     if (!productId) {
-        return res.status(400).json({ error: 'Product ID is required' });
+        return res.status(400).json({success:false, error: 'Product ID is required' });
     }
 
     const wishlistItem = await wishList.findOne({
@@ -48,7 +50,7 @@ exports.addTowishList = asyncHandler(async(req,res)=>{
     console.log('there is product in here ',wishlistItem)
 
     if (wishlistItem) {
-        return res.status(400).json({ error: 'Product is already in your wishlist' });
+        return res.status(400).json({success:false, error: 'Product is already in your wishlist' });
     }
 
 
@@ -70,7 +72,7 @@ exports.addTowishList = asyncHandler(async(req,res)=>{
     );
 
 
-    return res.status(201).json({ message: 'Product added to wishlist successfully' });
+    return res.status(201).json({success:true, message: 'Product added to wishlist successfully' });
 
 
 })

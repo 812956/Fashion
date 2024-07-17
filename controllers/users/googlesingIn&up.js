@@ -9,7 +9,7 @@ exports.insertUser = asyncHandler(async (req,res)=> {
     const regexPattern = new RegExp(`^${email}$`,'i')
     const duplicateCheck = await userCLTN.findOne({email:regexPattern})
     
-    if(duplicateCheck&& duplicateCheck.email===email && duplicateCheck.name===name){
+    if(duplicateCheck&& duplicateCheck.email===email){
        
         if(req.cookies&&!req.cookies.jwtToken){
             
@@ -45,7 +45,7 @@ exports.insertUser = asyncHandler(async (req,res)=> {
         is_login:true,
         is_verified:true
     })
-  
+
 
     const userpayload = {
         userId:GoogleVerifiedUser._id

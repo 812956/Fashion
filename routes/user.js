@@ -141,7 +141,7 @@ router.route("/wallet").get(userAuth.isProfileAllowed, wallet.view);
 
 router.route("/wishList").get(userAuth.isProfileAllowed,wishList.view);
 
-router.route("/wishList/add").post(wishList.addTowishList);
+router.route("/wishList/add").post(userAuth.notBlocked_haveJwt,wishList.addTowishList);
 
 router.route("/wishList/delete").delete(wishList.deleteItem);
 
