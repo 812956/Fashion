@@ -29,7 +29,7 @@ router
   .post(signIn.adminSignIn);
 
 //applying haveAccess middlware to every routs
-// router.use(adminAuth.haveAccess);
+router.use(adminAuth.haveAccess);
 
 //==========================dashboard=============================
 router.route("/admin_panel").get(dashboard.view);
